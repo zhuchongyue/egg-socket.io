@@ -49,7 +49,9 @@ exports.io = {
 
 ```js
 exports.io = {
-  init: { }, // passed to engine.io
+  // init: { },  support socket.io v4 breaking change! not init config
+  options: { // support all socket.io v4 options. ref: https://socket.io/docs/v4/server-options/
+  }, 
   namespace: {
     '/': {
       connectionMiddleware: [],
@@ -62,21 +64,6 @@ exports.io = {
   }
 };
 ```
-
-#### uws
-
-**Egg Socket 内部默认使用 `ws` 引擎，[uws](https://www.npmjs.com/package/uws) 因为[某些原因](https://github.com/socketio/socket.io/issues/3319)被废止。**
-
-如坚持需要使用，请按照以下配置即可：
-
-```js
-exports.io = {
-  init: { wsEngine: 'uws' },
-};
-```
-
-- 有关更多 `init` 选项配置，请参考：[engine.io](https://github.com/socketio/engine.io/blob/master/README.md#methods-1) 。
-- 有关更多 `Egg Socket` 相关默认配置，请参考：[config.default.js](config/config.default.js)。
 
 ### generateId
 

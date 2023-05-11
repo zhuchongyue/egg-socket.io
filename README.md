@@ -49,7 +49,9 @@ Configure Socket.IO in `${app_root}/config/config.default.js`:
 
 ```js
 exports.io = {
-  init: { }, // passed to engine.io
+  // init: { },  support socket.io v4 breaking change! not init config
+  options: { // support all socket.io v4 options. ref: https://socket.io/docs/v4/server-options/
+  }, 
   namespace: {
     '/': {
       connectionMiddleware: [],
@@ -63,20 +65,6 @@ exports.io = {
 };
 ```
 
-#### uws
-
-**Egg's socket is using `ws`, [uws](https://www.npmjs.com/package/uws) is deprecated due to [some reasons](https://github.com/socketio/socket.io/issues/3319).**
-
-If you insist using this, please config like this following:
-
-```js
-exports.io = {
-  init: { wsEngine: 'uws' },
-};
-```
-
-- For more options in `init` : [engine.io](https://github.com/socketio/engine.io/blob/master/README.md#methods-1).
-- For more configs of `Egg Socket` in default : [config.default.js](config/config.default.js).
 
 ### generateId
 
