@@ -1,0 +1,13 @@
+.autod.conf.js
+.eslintignore
+.eslintrc
+appveyor.yml
+.git            
+.github
+example
+.gitignore     
+.idea           
+.npmignore
+node_modules
+.travis.yml
+test
